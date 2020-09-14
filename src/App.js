@@ -21,7 +21,6 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import axios from "axios";
-import Alert from "@material-ui/lab/Alert";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -194,7 +193,7 @@ function App() {
         <Grid item xs={3}></Grid>
         <Grid item xs={6}>
           <MaterialTable
-            title="User data from remote source"
+            title="List Users API"
             columns={columns}
             data={data}
             icons={tableIcons}
