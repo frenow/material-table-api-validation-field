@@ -74,11 +74,6 @@ function App() {
     { title: "email", field: "email" },
   ];
   const [data, setData] = useState([]); //table data
-
-  //for error handling
-  const [iserror, setIserror] = useState(false);
-  const [errorMessages, setErrorMessages] = useState([]);
-
   useEffect(() => {
     api
       .get("/users")
@@ -121,12 +116,8 @@ function App() {
         dataUpdate[index] = newData;
         setData([...dataUpdate]);
         resolve();
-        setIserror(false);
-        setErrorMessages([]);
       })
       .catch((error) => {
-        setErrorMessages(["Update failed! Server error"]);
-        setIserror(true);
         reject();
       });
   };
@@ -160,12 +151,8 @@ function App() {
         dataToAdd.push(newData);
         setData(dataToAdd);
         resolve();
-        setErrorMessages([]);
-        setIserror(false);
       })
       .catch((error) => {
-        setErrorMessages(["Cannot add data. Server error!"]);
-        setIserror(true);
         reject();
       });
   };
@@ -181,8 +168,6 @@ function App() {
         resolve();
       })
       .catch((error) => {
-        setErrorMessages(["Delete failed! Server error"]);
-        setIserror(true);
         reject();
       });
   };
